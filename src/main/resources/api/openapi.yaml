@@ -1,0 +1,153 @@
+openapi: 3.0.3
+info:
+  contact:
+    email: felipe.fernandez@kairosds.com
+    name: Price Api
+  description: Price api to provide online shop prices
+  title: PRICE API
+  version: 1.0.0
+tags:
+  - name: Price
+    description: Operations to provide prices' products of online shop
+paths:
+  /prices:
+    get:
+      description: Filter product's prices by date
+      operationId: Price
+      parameters:
+        - in: query
+          name: productId
+          schema:
+            type: integer
+            format: int64
+          required: true
+          description: Numeric ID of the product
+        - in: query
+          name: brandId
+          schema:
+            type: integer
+            format: int64
+          required: true
+          description: Numeric ID of the brand
+        - in: query
+          name: date
+          schema:
+            type: string
+            format: date-time
+          description: Apply date pricing
+          required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PriceResponse'
+          description: Ok
+        "400":
+          content:
+            application/json:
+              schema:
+                properties:
+                  status:
+                    example: "400"
+                  path:
+                    example: "/prices"
+                allOf:
+                  - $ref: '#/components/schemas/ErrorMessage'
+          description: Bad Request
+        "404":
+          content:
+            application/json:
+              schema:
+                properties:
+                  status:
+                    example: "404"
+                  path:
+                    example: "/prices"
+                allOf:
+                  - $ref: '#/components/schemas/ErrorMessage'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                properties:
+                  status:
+                    example: "500"
+                  path:
+                    example: "/prices"
+                allOf:
+                  - $ref: '#/components/schemas/ErrorMessage'
+          description: Internal Server Error
+      tags:
+        - Prices
+      x-content-type: application/json
+      x-accepts: '*/*'
+      x-tags:
+        - tag: Prices
+
+components:
+  schemas:
+    ErrorMessage:
+      type: object
+      properties:
+        apiVersion:
+          description: API version
+          example: "1.0.0"
+          type: string
+        timestamp:
+          description: Timestamp
+          example: "2022-07-01T06:57:02.283+00:00"
+          type: string
+        status:
+          description: HTTP code status
+          type: string
+        logRef:
+          description: Log reference
+          example: "a6f00445-bcb7-4858-a493-34e982d9b65a"
+          type: string
+        path:
+          description: Endpoint path
+          type: string
+        exception:
+          description: Exception name
+          example: "RuntimeException"
+          type: string
+        message:
+          description: Error description
+          type: string
+      required:
+        - apiVersion
+        - timestamp
+        - status
+        - path
+        - exception
+        - message
+    PriceResponse:
+      type: object
+      properties:
+        productId:
+          description: Numeric ID of the product
+          type: integer
+          format: int64
+          example: 1
+        brandId:
+          description: Numeric ID of the brand
+          type: integer
+          format: int64
+          example: 1
+        rate:
+          description: Apply rate
+          type: number
+          format: double
+          example: 5
+        date:
+          description: Apply date pricing
+          type: string
+          format: date-time
+          example: 2017-07-21
+        price:
+          description: Apply price
+          type: number
+          format: double
+          example: 10

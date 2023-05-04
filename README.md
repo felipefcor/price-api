@@ -20,7 +20,7 @@ There are several ways to run a Spring Boot application on your local machine.
 
 - **From jar file**
   Create a jar file using '**mvn clean install**' command and then execute
-  <br/>```java -jar target/price-1.0.0-SNAPSHOT.jar```
+  <br/>```java -jar target/price-api-1.0.0-SNAPSHOT.jar```
 
 
 - **Directly from IDE**
