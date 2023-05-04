@@ -32,7 +32,7 @@ class PriceServiceTest {
     private PriceService priceService;
 
     @Test
-    @DisplayName("Test 1: petición a las 16:00 del día 14 del producto 35455 para la brand 1 (ZARA))")
+    @DisplayName("Test 1: petición a las 10:00 del día 14 del producto 35455 para la brand 1 (ZARA))")
     void getPriceWithPriceCommandWith_2020_06_14_10am_DateShouldReturnTotalPriceFilteredByDomainRulesWhenDatabaseReturnsData() {
         PriceCommand priceCommand = PriceCommandMother.priceCommandWithSpecificDate(LocalDateTime.parse("2020-06-14T10:00:00.00"));
         final var expectedTotalPrice = TotalPriceMother.priceWithAllDataAndDatesBetween20200614And20201231AndPriority0();
