@@ -7,22 +7,21 @@ import com.ffernandez.price.domain.ProductId;
 import com.ffernandez.price.domain.TotalPrice;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
+import org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.context.annotation.Import;
+import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.jdbc.Sql;
-import org.springframework.test.context.jdbc.SqlGroup;
 
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.springframework.test.context.jdbc.Sql.ExecutionPhase.BEFORE_TEST_METHOD;
 
-@DataJpaTest
+@DataJpaTest(excludeAutoConfiguration =  FlywayAutoConfiguration.class)
 @Import({TestConfig.class})
-@SqlGroup({
-        @Sql(value = "classpath:reset/reset.sql", executionPhase = BEFORE_TEST_METHOD),
-        @Sql(value = "classpath:init/data-test.sql", executionPhase = BEFORE_TEST_METHOD)
-})
 class PricePersistenceAdapterTest {
     @Autowired
     private PricePersistenceAdapter pricePersistenceAdapter;
@@ -34,6 +33,8 @@ class PricePersistenceAdapterTest {
     private PriceMapper priceMapper;
 
     @Test
+    @Sql("/migration/V998__create_table_prices.sql")
+    @Sql("/migration/V999__insert_data_table_prices.sql")
     void getPriceByProductIdAndBrandId() {
         Long productId = 35455L;
         Long brandId = 1L;
