@@ -10,6 +10,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.*;
+import org.springframework.test.context.jdbc.Sql;
+import org.springframework.test.context.jdbc.SqlGroup;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
@@ -17,8 +19,13 @@ import java.time.LocalDateTime;
 import java.util.LinkedHashMap;
 
 import static org.assertj.core.api.BDDAssertions.then;
+import static org.springframework.test.context.jdbc.Sql.ExecutionPhase.BEFORE_TEST_METHOD;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SqlGroup({
+        @Sql(value = "classpath:reset/reset.sql", executionPhase = BEFORE_TEST_METHOD),
+        @Sql(value = "classpath:init/data-test.sql", executionPhase = BEFORE_TEST_METHOD)
+})
 class PriceSystemTest {
     @LocalServerPort
     int port;

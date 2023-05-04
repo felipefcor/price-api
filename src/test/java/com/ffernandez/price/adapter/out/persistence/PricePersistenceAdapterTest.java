@@ -9,13 +9,20 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.context.annotation.Import;
+import org.springframework.test.context.jdbc.Sql;
+import org.springframework.test.context.jdbc.SqlGroup;
 
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.springframework.test.context.jdbc.Sql.ExecutionPhase.BEFORE_TEST_METHOD;
 
 @DataJpaTest
 @Import({TestConfig.class})
+@SqlGroup({
+        @Sql(value = "classpath:reset/reset.sql", executionPhase = BEFORE_TEST_METHOD),
+        @Sql(value = "classpath:init/data-test.sql", executionPhase = BEFORE_TEST_METHOD)
+})
 class PricePersistenceAdapterTest {
     @Autowired
     private PricePersistenceAdapter pricePersistenceAdapter;
