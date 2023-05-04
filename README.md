@@ -19,7 +19,7 @@ There are several ways to run a Spring Boot application on your local machine.
       <br/>```./mvnw spring-boot:run```
     - Windows
       <br/>First clean using '**mvnw.cmd clean install**' and after run:
-      <br/>```./mvnw spring-boot:run```
+      <br/>```mvnw.cmd spring-boot:run```
 
 - Second one, you can use the [Spring Boot Maven plugin](https://docs.spring.io/spring-boot/docs/current/reference/html/build-tool-plugins-maven-plugin.html) like so:
   <br/>First clean using '**mvn clean install**' and after run:
