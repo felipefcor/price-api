@@ -11,7 +11,8 @@ public interface PriceResponseMapper {
   @Mapping(target = "productId", source = "productId.id")
   @Mapping(target = "brandId", source = "brandId.id")
   @Mapping(target = "rate", source = "rate.rate")
-  @Mapping(target = "date", source = "date")
+  @Mapping(target = "startDate", source = "startDate")
+  @Mapping(target = "endDate", source = "endDate")
   @Mapping(target = "price", source = "price.price")
   PriceResponse domainToApi(TotalPrice totalPrice);
 }

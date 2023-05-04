@@ -6,14 +6,13 @@ import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import java.time.LocalDateTime;
 import java.util.Objects;
 
 /**
  * PriceResponse
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-02T21:30:28.937520300+02:00[Europe/Madrid]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-03T17:43:44.916833700+02:00[Europe/Madrid]")
 public class PriceResponse {
 
     @JsonProperty("productId")
@@ -25,9 +24,13 @@ public class PriceResponse {
     @JsonProperty("rate")
     private Double rate;
 
-    @JsonProperty("date")
+    @JsonProperty("startDate")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    private LocalDateTime date;
+    private java.time.LocalDateTime startDate;
+
+    @JsonProperty("endDate")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+    private java.time.LocalDateTime endDate;
 
     @JsonProperty("price")
     private Double price;
@@ -92,24 +95,44 @@ public class PriceResponse {
         this.rate = rate;
     }
 
-    public PriceResponse date(LocalDateTime date) {
-        this.date = date;
+    public PriceResponse startDate(java.time.LocalDateTime startDate) {
+        this.startDate = startDate;
         return this;
     }
 
     /**
-     * Apply date pricing
+     * Apply start date pricing
      *
-     * @return date
+     * @return startDate
      */
     @Valid
-    @Schema(name = "date", description = "Apply date pricing", required = false)
-    public LocalDateTime getDate() {
-        return date;
+    @Schema(name = "startDate", description = "Apply start date pricing", required = false)
+    public java.time.LocalDateTime getStartDate() {
+        return startDate;
     }
 
-    public void setDate(LocalDateTime date) {
-        this.date = date;
+    public void setStartDate(java.time.LocalDateTime startDate) {
+        this.startDate = startDate;
+    }
+
+    public PriceResponse endDate(java.time.LocalDateTime endDate) {
+        this.endDate = endDate;
+        return this;
+    }
+
+    /**
+     * Apply end date pricing
+     *
+     * @return endDate
+     */
+    @Valid
+    @Schema(name = "endDate", description = "Apply end date pricing", required = false)
+    public java.time.LocalDateTime getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(java.time.LocalDateTime endDate) {
+        this.endDate = endDate;
     }
 
     public PriceResponse price(Double price) {
@@ -144,13 +167,14 @@ public class PriceResponse {
         return Objects.equals(this.productId, priceResponse.productId) &&
                 Objects.equals(this.brandId, priceResponse.brandId) &&
                 Objects.equals(this.rate, priceResponse.rate) &&
-                Objects.equals(this.date, priceResponse.date) &&
+                Objects.equals(this.startDate, priceResponse.startDate) &&
+                Objects.equals(this.endDate, priceResponse.endDate) &&
                 Objects.equals(this.price, priceResponse.price);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(productId, brandId, rate, date, price);
+        return Objects.hash(productId, brandId, rate, startDate, endDate, price);
     }
 
     @Override
@@ -160,7 +184,8 @@ public class PriceResponse {
         sb.append("    productId: ").append(toIndentedString(productId)).append("\n");
         sb.append("    brandId: ").append(toIndentedString(brandId)).append("\n");
         sb.append("    rate: ").append(toIndentedString(rate)).append("\n");
-        sb.append("    date: ").append(toIndentedString(date)).append("\n");
+        sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
+        sb.append("    endDate: ").append(toIndentedString(endDate)).append("\n");
         sb.append("    price: ").append(toIndentedString(price)).append("\n");
         sb.append("}");
         return sb.toString();

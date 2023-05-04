@@ -141,8 +141,13 @@ components:
           type: number
           format: double
           example: 5
-        date:
-          description: Apply date pricing
+        startDate:
+          description: Apply start date pricing
+          type: string
+          format: date-time
+          example: 2017-07-21
+        endDate:
+          description: Apply end date pricing
           type: string
           format: date-time
           example: 2017-07-21

@@ -12,11 +12,11 @@ class PriceResponseMapperTest {
 
     @Test
     void domainToApi() {
-        final var totalPrice = TotalPriceMother.totalPriceWithAllData();
+        final var totalPrice = TotalPriceMother.totalPriceWithSpecificData();
 
         final var actualPriceResponse = priceResponseMapper.domainToApi(totalPrice);
 
-        final var expectedPriceResponse = PriceResponseMother.priceResponseWithAllData();
+        final var expectedPriceResponse = PriceResponseMother.priceResponseWithSpecificData();
         then(actualPriceResponse).isEqualTo(expectedPriceResponse);
     }
 }

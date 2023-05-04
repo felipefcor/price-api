@@ -8,12 +8,13 @@ import java.time.LocalDateTime;
 @UtilityClass
 public class PriceResponseMother {
 
-    public static PriceResponse priceResponseWithAllData() {
+    public static PriceResponse priceResponseWithSpecificData() {
         return new PriceResponse()
                 .productId(35455L)
                 .brandId(1L)
                 .rate(1.0)
-                .date(LocalDateTime.parse("2020-06-14T10:00:00.00"))
+                .startDate(LocalDateTime.parse("2020-06-14T10:00:00.00"))
+                .endDate(LocalDateTime.parse("2020-06-15T10:00:00.00"))
                 .price(35.50);
     }
 }

@@ -15,8 +15,16 @@ public class TotalPrice {
 
     @NotNull Rate rate;
 
-    @NotNull LocalDateTime date;
+    @NotNull LocalDateTime startDate;
+
+    @NotNull LocalDateTime endDate;
 
     @NotNull Price price;
+
+    Priority priority;
+
+    Currency currency;
+
+
 
 }

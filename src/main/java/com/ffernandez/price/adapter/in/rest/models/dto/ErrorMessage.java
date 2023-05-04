@@ -11,7 +11,7 @@ import java.util.Objects;
  * ErrorMessage
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-02T21:30:28.937520300+02:00[Europe/Madrid]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-03T17:43:44.916833700+02:00[Europe/Madrid]")
 public class ErrorMessage {
 
     @JsonProperty("apiVersion")
