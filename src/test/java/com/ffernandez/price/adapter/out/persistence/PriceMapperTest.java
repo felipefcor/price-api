@@ -1,5 +1,7 @@
 package com.ffernandez.price.adapter.out.persistence;
 
+import com.ffernandez.price.adapter.out.persistence.mapper.PriceMapper;
+import com.ffernandez.price.adapter.out.persistence.mapper.PriceMapperImpl;
 import com.ffernandez.price.adapter.out.persistence.mother.PriceJpaMother;
 import com.ffernandez.price.domain.mother.TotalPriceMother;
 import org.junit.jupiter.api.Test;

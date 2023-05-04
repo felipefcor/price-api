@@ -1,6 +1,7 @@
 package com.ffernandez.price.adapter.out.persistence;
 
 import com.ffernandez.price.adapter.out.persistence.config.TestConfig;
+import com.ffernandez.price.adapter.out.persistence.mapper.PriceMapper;
 import com.ffernandez.price.domain.BrandId;
 import com.ffernandez.price.domain.ProductId;
 import com.ffernandez.price.domain.TotalPrice;
@@ -8,8 +9,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.context.annotation.Import;
-import org.springframework.test.context.jdbc.Sql;
-
 
 import java.util.List;
 
@@ -28,7 +27,6 @@ class PricePersistenceAdapterTest {
     private PriceMapper priceMapper;
 
     @Test
-    @Sql("/PricePersistenceAdapterTest.sql")
     void getPriceByProductIdAndBrandId() {
         Long productId = 35455L;
         Long brandId = 1L;

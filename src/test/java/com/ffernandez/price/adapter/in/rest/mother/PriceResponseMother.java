@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 @UtilityClass
 public class PriceResponseMother {
 
-    public static PriceResponse priceResponseWithSpecificData() {
+    public PriceResponse priceResponseWithSpecificData() {
         return new PriceResponse()
                 .productId(35455L)
                 .brandId(1L)

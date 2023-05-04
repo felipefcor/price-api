@@ -1,5 +1,6 @@
-package com.ffernandez.price.adapter.out.persistence;
+package com.ffernandez.price.adapter.out.persistence.mapper;
 
+import com.ffernandez.price.adapter.out.persistence.PriceJpaEntity;
 import com.ffernandez.price.domain.TotalPrice;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
