@@ -42,7 +42,7 @@ There are several ways to run a Spring Boot application on your local machine.
 
 When the project is running you could do petitions to the api through two options:
 - **Swagger** 
-  <br/> [Swagger link](http://localhost:8080/swagger-ui/index.htm)
+  <br/> [Swagger link](http://localhost:8080/swagger-ui/index.html)
   <br/> [Swagger api petition](http://localhost:8080/prices?productId=35455&brandId=1&date=2020-06-14T10%3A00%3A00Z)
 
 
