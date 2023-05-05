@@ -40,7 +40,7 @@ class PriceSystemTest {
     }
 
     @Test
-    @DisplayName("Test 1: petición a las 16:00 del día 14 del producto 35455 para la brand 1 (ZARA))")
+    @DisplayName("Test 1: request at 10 am of 14th with product 35455 for the brand 1")
     void getPriceWithPriceCommandWith_2020_06_14_10am_DateShouldReturnTotalPriceFilteredByDomainRulesWhenDatabaseReturnsData() {
         String date = "2020-06-14T10:00:00.00";
         final var expectedTotalPrice = TotalPriceMother.priceWithAllDataAndDatesBetween20200614And20201231AndPriority0();
@@ -58,7 +58,7 @@ class PriceSystemTest {
     }
 
     @Test
-    @DisplayName("Test 2: petición a las 16:00 del día 14 del producto 35455 para la brand 1(ZARA)")
+    @DisplayName("Test 2: request at 16 pm of 14th of 2020 with product 35455 for the brand 1")
     void getPriceWithPriceCommandWith_2020_06_14_16pm_DateShouldReturnTotalPriceFilteredByDomainRulesWhenDatabaseReturnsData() {
         String date = "2020-06-14T16:00:00.00";
         final var expectedTotalPrice = TotalPriceMother.priceWithAllDataAndDatesBetween20200614And20200614AndPriority1();
@@ -76,7 +76,7 @@ class PriceSystemTest {
     }
 
     @Test
-    @DisplayName("Test 3: petición a las 21:00 del día 14 del producto 35455 para la brand 1(ZARA)")
+    @DisplayName("Test 3: request at 9 pm of 14th of 2020 with product 35455 for the brand 1")
     void getPriceWithPriceCommandWith_2020_06_14_21pm_DateShouldReturnTotalPriceFilteredByDomainRulesWhenDatabaseReturnsData() {
         String date = "2020-06-14T21:00:00.00";
         final var expectedTotalPrice = TotalPriceMother.priceWithAllDataAndDatesBetween20200614And20201231AndPriority0();
@@ -94,7 +94,7 @@ class PriceSystemTest {
     }
 
     @Test
-    @DisplayName("Test 4: petición a las 10:00 del día 15 del producto 35455 para la brand 1(ZARA))")
+    @DisplayName("Test 4: request at 10 am of 15th of 2020 with product 35455 for the brand 1")
     void getPriceWithPriceCommandWith_2020_06_15_10_am_DateShouldReturnTotalPriceFilteredByDomainRulesWhenDatabaseReturnsData() {
         String date = "2020-06-15T10:00:00.00";
         final var expectedTotalPrice = TotalPriceMother.priceWithAllDataAndDatesBetween20200615And20200615AndPriority1();
@@ -112,7 +112,7 @@ class PriceSystemTest {
     }
 
     @Test
-    @DisplayName("Test 5: petición a las 21:00 del día 16 del producto 35455 para la brand 1(ZARA)")
+    @DisplayName("Test 5: request at 9pm of 16th of 2020 with product 35455 for the brand 1")
     void getPriceWithPriceCommandWith_2020_06_16_21pm_DateShouldReturnTotalPriceFilteredByDomainRulesWhenDatabaseReturnsData() {
         String date = "2020-06-16T21:00:00.00";
         final var expectedTotalPrice = TotalPriceMother.priceWithAllDataAndDatesBetween20200615And20201231AndPriority1();
